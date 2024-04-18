@@ -59,5 +59,13 @@
         "prefix": "uuid",
         "body": "${UUID}",
         "description": "A Version 4 UUID"
+    },
+    "eon-cmake": {
+        "prefix": "eon-cmake",
+        "body": [
+            "cmake_miniversioon",
+            "cm,aopdkoad",
+        ],
+        "description": "测试==="
     }
 }

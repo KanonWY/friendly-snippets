@@ -26,7 +26,7 @@
 
         ],
         "description": "main template snappets no args"
-    }
+    },
     "for": {
         "prefix": "for",
         "body": [
