@@ -12,6 +12,21 @@
         ],
         "description": "Standard starter template for a tiny C++ program"
     },
+    "main_no_arg": {
+        "prefix": "main_no_arg",
+        "body": [
+        "#include <iostream>",
+        "",
+        "int main ()",
+            "{",
+            "\t std::cout << \"hello world\" << std::endl;",
+            "",
+            "\treturn 0;",
+        "}"
+
+        ],
+        "description": "main template snappets no args"
+    }
     "for": {
         "prefix": "for",
         "body": [
