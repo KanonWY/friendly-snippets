@@ -13,6 +13,171 @@
         ],
         "description": "ISO date time stamp"
     },
+    "eoncmake": {
+        "prefix": "eoncmake",
+        "body": [
+            "cmake_minimum_required(VERSION 3.20)",
+            "",
+            "include($$ENV{EON_CMAKE_TOOLKIT})",
+            "",
+            "project(_)",
+            "",
+            "eon_project(",
+            "\tEON_ROOT ${CMAKE_SOURCE_DIR\\}",
+            "\tNAME_FROM_EON",
+            "\tVERSION_FROM_EON",
+            "\tUSE_ROS1",
+            " )",
+            "",
+            "eon_add_subdirectories(src)",
+            "",
+            "eon_project_complete()"
+        ],
+        "description": "eon cmake template"
+    },
+    "normalcmake": {
+        "prefix": "normalcmake",
+        "body": [
+            "cmake_minimum_required(VERSION 3.20)",
+            "",
+            "project(DEMO LANGUAGES CXX C)",
+            "",
+            "set(CMAKE_CXX_STANDARD 20)",
+            "set(CMAKE_C_STANDARD 99)",
+            "set(CMAKE_CXX_STANDARD_REQUIRED ON)",
+            "set(CMAKE_CXX_EXTENSIONS OFF)",
+            "set(CMAKE_EXPORT_COMPILE_COMMANDS ON)",
+            "",
+            "add_executable(Main main.cpp)",
+            "",
+            ""
+        ],
+        "description": "normal cmake template"
+    },
+    "eon_add_library": {
+        "prefix": "eon_add_library",
+        "body": [
+            "eon_add_library($1",
+            "\tDEPENDS",
+            "\t\t$2",
+            "\tFORCE_DEPENDS",
+            "\t\t$3",
+            "\tSOURCES",
+            "\t\t$4",
+            "\tSOURCE_DIRECTORIES",
+            "\t\t$5",
+            "\tINCLUDES",
+            "\t\t$6",
+            "\tLIBRARIES",
+            "\t\t$7",
+            "#\tHIDDEND",
+            ")"
+        ],
+        "description": "生成一个 eon 动态库"
+    },
+    "eon_add_executable": {
+        "prefix": "eon_add_executable",
+        "body": [
+            "eon_add_executable($1",
+            "\tDEPENDS",
+            "\t\t$2",
+            "\tFORCE_DEPENDS",
+            "\t\t$3",
+            "\tSOURCES",
+            "\t\t$4",
+            "\tSOURCE_DIRECTORIES",
+            "\t\t$5",
+            "\tINCLUDES",
+            "\t\t$6",
+            "\tLIBRARIES",
+            "\t\t$7",
+            "#\tHIDEDEN",
+            ")"
+        ],
+        "description": "生成一个 eon 可执行程序"
+    },
+    "eon_add_executable_raw": {
+        "prefix": "eon_add_executable_raw",
+        "body": [
+            "eon_add_executable_raw($1",
+            "\tDEPENDS",
+            "\t\t$2",
+            "\tFORCE_DEPENDS",
+            "\t\t$3",
+            "\tSOURCES",
+            "\t\t$4",
+            "\tSOURCE_DIRECTORIES",
+            "\t\t$5",
+            "\tINCLUDES",
+            "\t\t$6",
+            "\tLIBRARIES",
+            "\t\t$7",
+            "#\tHIDEDEN",
+            ")"
+        ],
+        "description": "生成一个 eon 可执行程序,可以不指定文件夹而单独指定一个目录"
+    },
+    "eon_add_protobuf": {
+        "prefix": "eon_add_protobuf",
+        "body": [
+            "eon_install_protobuf($1",
+            "\tSOURCE_DIRECTORIES",
+            "\t\t$2",
+            "\tDEPENDS",
+            "\t\t$3",
+            "\tSHARED",
+            "#\tHIDEDEN",
+            ")"
+        ],
+        "description": "生成一个 protobuf 的动态库或者静态库"
+    },
+
+    "eon_install_data": {
+        "prefix": "eon_install_data",
+        "body": [
+            "eon_install_data(",
+            "\t${MODULE_INSTALL_PATH}",
+            "\t$1",
+            ")"
+        ],
+        "description": "将多个文件或者文件夹配置到打包的根路径下"
+    },
+
+    "eon_install_script_file": {
+        "prefix": "eon_install_script_file",
+        "body": [
+            "eon_install_script_file(",
+            "\t${MODULE_INSTALL_PATH}",
+            "\t$1",
+            ")"
+        ],
+        "description": "将多个可执行文件安装到打包的根据路径下"
+    },
+
+    "eon_message_color": {
+        "prefix": "eon_message_color",
+        "body": [
+            "eon_message_color(COLOR Red $1)"
+        ],
+        "description": "彩色打印,支持多种颜色"
+    },
+
+    "eontomlinfo": {
+        "prefix": "eontomlinfo",
+        "body": [
+            "name = \"$1\"",
+            "version = \"$2\"",
+            "desc = \"$3\"",
+            "authors = []",
+            "topics = []",
+            "",
+            "[deps]",
+            "",
+            "[sys_deps]"
+        ],
+        "description": "填充 eon 的toml 信息"
+    },
+
     "date": {
         "prefix": "date",
         "body": ["${CURRENT_YEAR}-${CURRENT_MONTH}-${CURRENT_DATE}"],
@@ -59,13 +224,5 @@
         "prefix": "uuid",
         "body": "${UUID}",
         "description": "A Version 4 UUID"
-    },
-    "eon-cmake": {
-        "prefix": "eon-cmake",
-        "body": [
-            "cmake_miniversioon",
-            "cm,aopdkoad",
-        ],
-        "description": "测试==="
     }
 }
